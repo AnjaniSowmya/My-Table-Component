@@ -148,7 +148,7 @@ class App extends React.Component {
                             <h2><b>My Educational Details</b></h2>
                             <Table dataSource={myEducation.dataSource} columns={myEducation.columns} entriesPerPage={2}/>
                             <h2><b>Our Team</b></h2>
-                            <Table dataSource={ourTeam.dataSource} columns={ourTeam.columns} entriesPerPage={4}/>
+                            <Table dataSource={ourTeam.dataSource} columns={ourTeam.columns} entriesPerPage={3}/>
                         </div>
                     </div>
                 </div>
