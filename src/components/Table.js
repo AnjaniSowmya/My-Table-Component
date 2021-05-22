@@ -25,21 +25,29 @@ class Table extends React.Component {
         };
         this.prev = this.prev.bind(this)
         this.next = this.next.bind(this)
+        this.switchToPage = this.switchToPage.bind(this)
+        this.changePage = this.changePage.bind(this)
     }
 
     prev() {
         let cp = this.state.currentPage;
         cp--;
         if(cp<0) cp=0;
-        this.setState({
-            currentPage: cp 
-        });
+        this.changePage(cp);
     }
 
     next() {
         let cp = this.state.currentPage;
         cp++;
         if(cp>(this.state.numberOfPages-1)) cp=this.state.numberOfPages-1;
+        this.changePage(cp);
+    }
+
+    switchToPage(e) {
+        this.changePage(e.target.id);
+    }
+
+    changePage(cp) {
         this.setState({
             currentPage: cp 
         });
@@ -71,7 +79,7 @@ class Table extends React.Component {
             i<this.state.numberOfPages;
             i++) {
             pageNumbers.push(
-                <button type="button" className="btn btn-light my-button">
+                <button type="button" className="btn btn-light my-button" id={i} onClick={this.switchToPage}>
                 {(i===this.state.currentPage)?<b>{i+1}</b>:i+1}
                 </button>)
         }
