@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Table-Using-AntD/static/css/main.a7db6e8c.chunk.css",
-    "main.js": "/Table-Using-AntD/static/js/main.4396fb26.chunk.js",
-    "main.js.map": "/Table-Using-AntD/static/js/main.4396fb26.chunk.js.map",
-    "runtime-main.js": "/Table-Using-AntD/static/js/runtime-main.c5cd784d.js",
-    "runtime-main.js.map": "/Table-Using-AntD/static/js/runtime-main.c5cd784d.js.map",
-    "static/js/2.3bb9127e.chunk.js": "/Table-Using-AntD/static/js/2.3bb9127e.chunk.js",
-    "static/js/2.3bb9127e.chunk.js.map": "/Table-Using-AntD/static/js/2.3bb9127e.chunk.js.map",
-    "static/js/3.fd0161fa.chunk.js": "/Table-Using-AntD/static/js/3.fd0161fa.chunk.js",
-    "static/js/3.fd0161fa.chunk.js.map": "/Table-Using-AntD/static/js/3.fd0161fa.chunk.js.map",
-    "index.html": "/Table-Using-AntD/index.html",
-    "static/css/main.a7db6e8c.chunk.css.map": "/Table-Using-AntD/static/css/main.a7db6e8c.chunk.css.map",
-    "static/js/2.3bb9127e.chunk.js.LICENSE.txt": "/Table-Using-AntD/static/js/2.3bb9127e.chunk.js.LICENSE.txt"
+    "main.css": "/My-Table-Component/static/css/main.a7db6e8c.chunk.css",
+    "main.js": "/My-Table-Component/static/js/main.66e0c325.chunk.js",
+    "main.js.map": "/My-Table-Component/static/js/main.66e0c325.chunk.js.map",
+    "runtime-main.js": "/My-Table-Component/static/js/runtime-main.2bab870a.js",
+    "runtime-main.js.map": "/My-Table-Component/static/js/runtime-main.2bab870a.js.map",
+    "static/js/2.3bb9127e.chunk.js": "/My-Table-Component/static/js/2.3bb9127e.chunk.js",
+    "static/js/2.3bb9127e.chunk.js.map": "/My-Table-Component/static/js/2.3bb9127e.chunk.js.map",
+    "static/js/3.fd0161fa.chunk.js": "/My-Table-Component/static/js/3.fd0161fa.chunk.js",
+    "static/js/3.fd0161fa.chunk.js.map": "/My-Table-Component/static/js/3.fd0161fa.chunk.js.map",
+    "index.html": "/My-Table-Component/index.html",
+    "static/css/main.a7db6e8c.chunk.css.map": "/My-Table-Component/static/css/main.a7db6e8c.chunk.css.map",
+    "static/js/2.3bb9127e.chunk.js.LICENSE.txt": "/My-Table-Component/static/js/2.3bb9127e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c5cd784d.js",
+    "static/js/runtime-main.2bab870a.js",
     "static/js/2.3bb9127e.chunk.js",
     "static/css/main.a7db6e8c.chunk.css",
-    "static/js/main.4396fb26.chunk.js"
+    "static/js/main.66e0c325.chunk.js"
   ]
 }
