@@ -1,0 +1,43 @@
+.my-content {
+    overflow-x: auto;
+}
+.my-table{
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    color: #212529;
+    padding: 30px;
+    border: 2.5px;
+    background-color: rgb(252, 252, 252);
+    border-radius: 5px;
+}
+/**:not(#root){
+    box-sizing : border-box;
+  }*/
+.row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    align-content: center;
+}
+h2{
+    text-align: center;
+    justify-content: center;
+    font-style: inherit;
+    padding: 30px;
+    margin-top: 30px;
+    text-shadow: lightgrey;
+}
+@media only screen and (max-width: 500px) {
+    /* For mobile phones: */
+    .row{
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: 15px;
+        margin-left: 15px;
+        align-content: center;
+    }
+  }
