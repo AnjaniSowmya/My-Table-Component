@@ -1,4 +1,4 @@
-.my-content {
+.my-table-content {
     overflow-x: auto;
 }
 .my-table{
@@ -7,37 +7,15 @@
     height: fit-content;
     color: #212529;
     padding: 30px;
-    border: 2.5px;
+    border: 25px;
     background-color: rgba(250, 248, 248, 0.822);
     border-radius: 5px;
     border-color: black;
 }
-/**:not(#root){
-    box-sizing : border-box;
-  }*/
-.row {
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    align-content: center;
-}
-h2{
+.my-navigator{
     text-align: center;
     justify-content: center;
-    font-style: inherit;
-    padding: 30px;
-    margin-top: 30px;
 }
-@media only screen and (max-width: 500px) {
-    /* For mobile phones: */
-    .row{
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: 15px;
-        margin-left: 15px;
-        align-content: center;
-    }
-  }
+.my-button {
+    margin-left: 5px;
+}

@@ -1,49 +1,95 @@
 import React from 'react'
 import "./Table.css"
 
-const Table = (props) => {
-    const table_columns = 
-        <thead>
-            <tr>
-                {
-                    props.columns.map((column) => {
-                        return (
-                            <th scope="col">{column.title}</th>
-                        )
-                    })
-                }
-            </tr>
-        </thead>
-    const table_data = props.dataSource.map((item) =>{
-        return (
-            <tbody>
-                <tr>
-                    {
-                        props.columns.map((column) => {
-                            return (
-                                <td>{item[column.key]}</td>
-                            )
-                        })
-                    }
-                </tr>
-            </tbody>
-        )
-    })
+class Table extends React.Component {
+    constructor(props) {
+        super(props);
+        let entriesPerPage = props.entriesPerPage||10;
+        this.state = {
+            entriesPerPage: entriesPerPage,
+            currentPage: 0,
+            numberOfPages: Math.ceil(this.props.dataSource.length/(entriesPerPage*1.0)),
+            table_columns : 
+                <thead>
+                    <tr>
+                        {
+                            this.props.columns.map((column) => {
+                                return (
+                                    <th scope="col">{column.title}</th>
+                                )
+                            })
+                            
+                        }
+                    </tr>
+                </thead>
+        };
+        this.prev = this.prev.bind(this)
+        this.next = this.next.bind(this)
+    }
 
-    return(
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-lg-12" >
-                    <h2><b>My Educational Details</b></h2>
-                    <div className="my-content">
+    prev() {
+        let cp = this.state.currentPage;
+        cp--;
+        if(cp<0) cp=0;
+        this.setState({
+            currentPage: cp 
+        });
+    }
+
+    next() {
+        let cp = this.state.currentPage;
+        cp++;
+        if(cp>(this.state.numberOfPages-1)) cp=this.state.numberOfPages-1;
+        this.setState({
+            currentPage: cp 
+        });
+    }
+
+    render() {
+        const startIndex = this.state.currentPage*this.state.entriesPerPage;
+        const endIndex = startIndex + this.state.entriesPerPage;
+        const pageData = this.props.dataSource.slice(startIndex, endIndex);
+        const table_data = pageData.map((item) =>{
+            return (
+                <tbody>
+                    <tr>
+                        {
+                            this.props.columns.map((column) => {
+                                return (
+                                    <td>{item[column.key]}</td>
+                                )
+                            })
+                        }
+                    </tr>
+                </tbody>
+            )
+        })
+
+        const pageNumbers = []
+        for (
+            var i=0;
+            i<this.state.numberOfPages;
+            i++) {
+            pageNumbers.push(
+                <button type="button" className="btn btn-light my-button">
+                {(i===this.state.currentPage)?<b>{i+1}</b>:i+1}
+                </button>)
+        }
+        return(
+            <div>
+                <div className="my-table-content">
                     <table className="table my-table table-bordered">
-                        {table_columns}
+                        {this.state.table_columns}
                         {table_data}
                     </table>
-                    </div>
+                </div>
+                <div className="row my-navigator">
+                    <button type="button" class="btn btn-light my-button" onClick={this.prev}>&lt;</button>
+                    {pageNumbers}
+                    <button type="button" class="btn btn-light my-button" onClick={this.next}>&gt;</button>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 export default Table;
