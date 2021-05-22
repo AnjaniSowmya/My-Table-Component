@@ -59,12 +59,12 @@ class Table extends React.Component {
         const pageData = this.props.dataSource.slice(startIndex, endIndex);
         const table_data = pageData.map((item) =>{
             return (
-                <tbody>
-                    <tr>
+                <tbody key={item.key}>
+                    <tr key={item.key}>
                         {
                             this.props.columns.map((column) => {
                                 return (
-                                    <td>{item[column.key]}</td>
+                                    <td key={column.key}>{item[column.key]}</td>
                                 )
                             })
                         }
@@ -79,7 +79,7 @@ class Table extends React.Component {
             i<this.state.numberOfPages;
             i++) {
             pageNumbers.push(
-                <button type="button" className="btn btn-light my-button" id={i} onClick={this.switchToPage}>
+                <button type="button" className="btn btn-light my-button" id={i} key={i} onClick={this.switchToPage}>
                 {(i===this.state.currentPage)?<b>{i+1}</b>:i+1}
                 </button>)
         }
@@ -92,9 +92,9 @@ class Table extends React.Component {
                     </table>
                 </div>
                 <div className="row my-navigator">
-                    <button type="button" class="btn btn-light my-button" onClick={this.prev}>&lt;</button>
+                    <button type="button" className="btn btn-light my-button" onClick={this.prev}>&lt;</button>
                     {pageNumbers}
-                    <button type="button" class="btn btn-light my-button" onClick={this.next}>&gt;</button>
+                    <button type="button" className="btn btn-light my-button" onClick={this.next}>&gt;</button>
                 </div>
             </div>
         )
