@@ -6,6 +6,7 @@ class Table extends React.Component {
         super(props);
         let entriesPerPage = props.entriesPerPage||10;
         this.state = {
+            dataSource: props.dataSource,
             entriesPerPage: entriesPerPage,
             currentPage: 0,
             numberOfPages: Math.ceil(this.props.dataSource.length/(entriesPerPage*1.0)),
@@ -15,7 +16,14 @@ class Table extends React.Component {
                         {
                             this.props.columns.map((column) => {
                                 return (
-                                    <th scope="col">{column.title}</th>
+                                    <th scope="col"
+                                        id={column.key}
+                                        className={column.sorter?"col-sortable":"col-normal"}
+                                        onClick={(e)=>{column.sorter?this.sortTable(e):this.doNothing()}}>
+                                        {column.title}
+                                        &nbsp;
+                                        {column.sorter?<i className="fa fa-sort" aria-hidden="true"></i>:""}
+                                    </th>
                                 )
                             })
                             
@@ -27,6 +35,8 @@ class Table extends React.Component {
         this.next = this.next.bind(this)
         this.switchToPage = this.switchToPage.bind(this)
         this.changePage = this.changePage.bind(this)
+        this.sortTable = this.sortTable.bind(this)
+        this.doNothing = this.doNothing.bind(this)
     }
 
     prev() {
@@ -53,10 +63,18 @@ class Table extends React.Component {
         });
     }
 
+    sortTable(e) {
+        let key = e.target.id;
+        let column = this.props.columns.find(col => col.key === key);
+        this.setState({ dataSource: this.state.dataSource.sort(column.sorter) });
+    }
+
+    doNothing() {}
+
     render() {
         const startIndex = this.state.currentPage*this.state.entriesPerPage;
         const endIndex = startIndex + this.state.entriesPerPage;
-        const pageData = this.props.dataSource.slice(startIndex, endIndex);
+        const pageData = this.state.dataSource.slice(startIndex, endIndex);
         const table_data = pageData.map((item) =>{
             return (
                 <tbody key={item.key}>

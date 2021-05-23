@@ -19,3 +19,6 @@
 .my-button {
     margin-left: 5px;
 }
+.col-sortable {
+    cursor: pointer;
+}

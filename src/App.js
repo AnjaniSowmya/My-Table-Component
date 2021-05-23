@@ -37,6 +37,7 @@ class App extends React.Component {
                 {
                     key: "yop",
                     title: "Year of Passing",
+                    sorter: (a, b) => a.yop - b.yop,
                 },
                 {
                     key: "inst",
@@ -115,7 +116,7 @@ class App extends React.Component {
                     course: "B.Tech",
                     college: "VIT"
                 },
-            ],
+            ],  
             columns: [
                 {
                     key: "name",
