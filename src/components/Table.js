@@ -7,6 +7,7 @@ class Table extends React.Component {
         let entriesPerPage = props.entriesPerPage||10;
         this.state = {
             dataSource: props.dataSource,
+            columns: props.columns,
             entriesPerPage: entriesPerPage,
             currentPage: 0,
             numberOfPages: Math.ceil(this.props.dataSource.length/(entriesPerPage*1.0)),
@@ -65,8 +66,19 @@ class Table extends React.Component {
 
     sortTable(e) {
         let key = e.target.id;
-        let column = this.props.columns.find(col => col.key === key);
-        this.setState({ dataSource: this.state.dataSource.sort(column.sorter) });
+        let column = this.state.columns.find(col => col.key === key);
+        let dataSource = this.state.dataSource.sort(column.sorter);
+        if(column.sortedInAscending) {
+            dataSource.reverse();
+            column.sortedInAscending = false;
+        }
+        else {
+            column.sortedInAscending = true;
+        }
+        this.setState({ 
+            dataSource: dataSource,
+            columns: this.state.columns
+        });
     }
 
     doNothing() {}
@@ -80,7 +92,7 @@ class Table extends React.Component {
                 <tbody key={item.key}>
                     <tr key={item.key}>
                         {
-                            this.props.columns.map((column) => {
+                            this.state.columns.map((column) => {
                                 return (
                                     <td key={column.key}>{item[column.key]}</td>
                                 )

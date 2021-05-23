@@ -32,20 +32,20 @@ class App extends React.Component {
             columns: [
                 {
                     key: "qual",
-                    title: "Qualification",
+                    title: "Qualification"
                 },
                 {
                     key: "yop",
                     title: "Year of Passing",
-                    sorter: (a, b) => a.yop - b.yop,
+                    sorter: (a, b) => a.yop - b.yop
                 },
                 {
                     key: "inst",
-                    title: "Institution",
+                    title: "Institution"
                 },
                 {
                     key: "gpa",
-                    title: "GPA",
+                    title: "GPA"
                 }
             ]
         };
@@ -121,22 +121,24 @@ class App extends React.Component {
                 {
                     key: "name",
                     title: "Name",
+                    sorter: (a,b) => {if(a.name<b.name) return -1; if(a.name>b.name) return 1; return 0;}
                 },
                 {
                     key: "branch",
-                    title: "Branch",
+                    title: "Branch"
                 },
                 {
                     key: "year",
                     title: "Year",
+                    sorter: (a, b) => a.year - b.year
                 },
                 {
                     key: "course",
-                    title: "Course",
+                    title: "Course"
                 },
                 {
                     key: "college",
-                    title: "College",
+                    title: "College"
                 }
             ]
         };
